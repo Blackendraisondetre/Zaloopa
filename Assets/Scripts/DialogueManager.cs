@@ -5,7 +5,8 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
-    public GameObject panel;
+    public GameObject dialoguePanel;
+    public GameObject actionCardPanel;
     public TextMeshProUGUI dialogueText;
     public GameObject blurOverlay;
     private string[] lines;
@@ -13,17 +14,16 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        if (panel != null)
-            panel.SetActive(false);
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(false);
         if (blurOverlay != null)
             blurOverlay.SetActive(false);
     }
 
-    public void StartDialogueForHouse(string[] newLines)
+    public void StartDialogueForHouse(int house_id)
     {
-        lines = newLines;
-        index = 0;
-        panel.SetActive(true);
+        // Read Text dependent on house_id
+        dialoguePanel.SetActive(true);
         blurOverlay.SetActive(true);
         ShowLine();
     }
@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        panel.SetActive(false);
+        dialoguePanel.SetActive(false);
         blurOverlay.SetActive(false);
         //GameManager.Instance.OnDialogueFinished();
     }
