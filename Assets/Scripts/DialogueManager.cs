@@ -4,6 +4,7 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager Instance;
     public GameObject panel;
     public TextMeshProUGUI dialogueText;
     public GameObject blurOverlay;
@@ -18,7 +19,7 @@ public class DialogueManager : MonoBehaviour
             blurOverlay.SetActive(false);
     }
 
-    public void StartDialogue(string[] newLines)
+    public void StartDialogueForHouse(string[] newLines)
     {
         lines = newLines;
         index = 0;
