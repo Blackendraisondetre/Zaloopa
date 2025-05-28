@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class DialogueLine {
@@ -351,16 +352,14 @@ private void EndGame()
 
     Debug.Log($"Remaining non-dead houses: {totalAlive}, Brainwashed: {brainwashedCount}");
 
-    if (brainwashedCount > totalAlive / 2f)
-    {
-        ShowPopupMessage("GOOD ENDING achieved!");
-        //LoadGoodEndingScene();
-    }
-    else
-    {
-        ShowPopupMessage("BAD ENDING reached.");
-        //LoadBadEndingScene();
-    }
+        if (brainwashedCount > totalAlive / 2f)
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
+        else
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
 }
 
 
