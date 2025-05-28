@@ -42,6 +42,10 @@ public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI dialogueText;
     public HouseUI houseui;
 
+    [Header("Brainwash Progress UI")]
+    public Slider brainwashSlider;
+    public TextMeshProUGUI brainwashPercentText;
+
     [Header("Day Transition UI")]
     public GameObject dayPanel;
     public TextMeshProUGUI dayText;
@@ -70,6 +74,8 @@ public class DialogueManager : MonoBehaviour {
         dialoguePanel?.SetActive(false);
         blurOverlay?.SetActive(false);
         actionCardPanel?.SetActive(false);
+        dayPanel?.SetActive(false);
+        UpdateBrainwashProgress();
     }
 
     public void StartDialogueForHouse(int house_id) {
@@ -132,6 +138,7 @@ public class DialogueManager : MonoBehaviour {
                 if (ui != null) {
                     ui.SetState(HouseState.Dead);
                     ui.UpdateVisual();
+                    UpdateBrainwashProgress();
                 } else {
                     Debug.LogWarning("No HouseUI component found on: " + hd.go.name);
                 }
@@ -177,6 +184,7 @@ public class DialogueManager : MonoBehaviour {
                 {
                     ui.SetState(HouseState.Brainwashed);
                     ui.UpdateVisual();
+                    UpdateBrainwashProgress();
                 }
                 else
                 {
@@ -291,6 +299,34 @@ private bool AllHousesHandled()
     }
     return true;
 }
+
+private void UpdateBrainwashProgress()
+{
+    int totalRelevant = 0;
+    int brainwashed = 0;
+
+    foreach (var hd in houseList)
+    {
+        HouseUI ui = hd.go.GetComponent<HouseUI>();
+        if (ui != null && ui.state != HouseState.Dead)
+        {
+            totalRelevant++;
+            if (ui.state == HouseState.Brainwashed)
+            {
+                brainwashed++;
+            }
+        }
+    }
+
+    float percent = totalRelevant > 0 ? (brainwashed / (float)totalRelevant) * 100f : 0f;
+
+    if (brainwashSlider != null)
+        brainwashSlider.value = percent;
+
+    if (brainwashPercentText != null)
+        brainwashPercentText.text = $"Voters: {Mathf.RoundToInt(percent)}%";
+}
+
 
 private void EndGame()
 {
