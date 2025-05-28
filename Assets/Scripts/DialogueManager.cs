@@ -52,6 +52,10 @@ public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI dayText;
     public float dayDisplayTime = 2f;
 
+    [Header("Persistent UI")]
+    public TextMeshProUGUI currentDayText;
+    public TextMeshProUGUI actionsLeftText;
+
     [Header("House Data")]
     public List<HouseData> houseList = new List<HouseData>();
 
@@ -70,13 +74,16 @@ public class DialogueManager : MonoBehaviour {
         if (Instance == null) Instance = this;
     }
 
-    void Start() {
+    void Start()
+    {
         index = 0;
         dialoguePanel?.SetActive(false);
         blurOverlay?.SetActive(false);
         actionCardPanel?.SetActive(false);
         dayPanel?.SetActive(false);
         UpdateBrainwashProgress();
+        UpdateCurrentDayUI();
+        UpdateActionsLeftUI();
     }
 
     public void StartDialogueForHouse(int house_id) {
@@ -262,12 +269,14 @@ private IEnumerator ShowPopupRoutine(string message)
 
 private void CheckDayProgress()
 {
+    UpdateCurrentDayUI();
+    UpdateActionsLeftUI();
     // Check for day transitions
-    if (dayCounter == 2 || dayCounter == 4)
-    {
-        int currentDay = (dayCounter / 2) + 1;
-        StartCoroutine(ShowDayTransition(currentDay));
-    }
+        if (dayCounter == 2 || dayCounter == 4)
+        {
+            int currentDay = (dayCounter / 2) + 1;
+            StartCoroutine(ShowDayTransition(currentDay));
+        }
 
     // End game after 6 actions or all houses are done
     if (dayCounter >= 6 || AllHousesHandled())
@@ -278,6 +287,7 @@ private void CheckDayProgress()
 
 private IEnumerator ShowDayTransition(int dayNumber)
 {
+    UpdateCurrentDayUI();
     dayText.text = $"Day {dayNumber}";
     dayPanel.SetActive(true);
     blurOverlay?.SetActive(true);
@@ -301,56 +311,76 @@ private bool AllHousesHandled()
     return true;
 }
 
-private void UpdateBrainwashProgress()
-{
-    int totalRelevant = 0;
-    int brainwashed = 0;
-
-    foreach (var hd in houseList)
+    private void UpdateBrainwashProgress()
     {
-        HouseUI ui = hd.go.GetComponent<HouseUI>();
-        if (ui != null && ui.state != HouseState.Dead)
+        int totalRelevant = 0;
+        int brainwashed = 0;
+
+        foreach (var hd in houseList)
         {
-            totalRelevant++;
-            if (ui.state == HouseState.Brainwashed)
+            HouseUI ui = hd.go.GetComponent<HouseUI>();
+            if (ui != null && ui.state != HouseState.Dead)
             {
-                brainwashed++;
-            }
-        }
-    }
-
-    float percent = totalRelevant > 0 ? (brainwashed / (float)totalRelevant) * 100f : 0f;
-
-    if (brainwashSlider != null)
-        brainwashSlider.value = percent;
-
-    if (brainwashPercentText != null)
-        brainwashPercentText.text = $"Voters: {Mathf.RoundToInt(percent)}%";
-}
-
-
-private void EndGame()
-{
-    int totalAlive = 0;
-    int brainwashedCount = 0;
-
-    foreach (var hd in houseList)
-    {
-        HouseUI ui = hd.go.GetComponent<HouseUI>();
-        if (ui != null)
-        {
-            if (ui.state != HouseState.Dead)
-            {
-                totalAlive++;
+                totalRelevant++;
                 if (ui.state == HouseState.Brainwashed)
                 {
-                    brainwashedCount++;
+                    brainwashed++;
                 }
             }
         }
+
+        float percent = totalRelevant > 0 ? (brainwashed / (float)totalRelevant) * 100f : 0f;
+
+        if (brainwashSlider != null)
+            brainwashSlider.value = percent;
+
+        if (brainwashPercentText != null)
+            brainwashPercentText.text = $"Voters: {Mathf.RoundToInt(percent)}%";
     }
 
-    Debug.Log($"Remaining non-dead houses: {totalAlive}, Brainwashed: {brainwashedCount}");
+    private void UpdateCurrentDayUI()
+    {
+        int currentDay = (dayCounter / 2) + 1;
+        if (currentDayText != null)
+        {
+            currentDayText.text = $"Day {currentDay}";
+        }
+    }
+
+    private void UpdateActionsLeftUI()
+    {
+        int actionsThisDay = dayCounter % 2;
+        int actionsLeft = 2 - actionsThisDay;
+
+        if (actionsLeftText != null)
+        {
+            actionsLeftText.text = $"Actions Left: {actionsLeft}";
+        }
+    }
+
+
+    private void EndGame()
+    {
+        int totalAlive = 0;
+        int brainwashedCount = 0;
+
+        foreach (var hd in houseList)
+        {
+            HouseUI ui = hd.go.GetComponent<HouseUI>();
+            if (ui != null)
+            {
+                if (ui.state != HouseState.Dead)
+                {
+                    totalAlive++;
+                    if (ui.state == HouseState.Brainwashed)
+                    {
+                        brainwashedCount++;
+                    }
+                }
+            }
+        }
+
+        Debug.Log($"Remaining non-dead houses: {totalAlive}, Brainwashed: {brainwashedCount}");
 
         if (brainwashedCount > totalAlive / 2f)
         {
@@ -360,7 +390,7 @@ private void EndGame()
         {
             SceneManager.LoadScene("LoseScreen");
         }
-}
+    }
 
 
 
