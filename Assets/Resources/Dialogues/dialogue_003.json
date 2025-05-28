@@ -1,0 +1,17 @@
+{
+  "dialogueId": "dlg_003",
+  "lines": [
+    {
+      "id": 1,
+      "text": "Live together and work at the local power station. Recently lost their mother, and have become more withdrawn since. Avoid political talk."
+    },
+    {
+      "id": 2,
+      "text": "The older brother distrusts 'official news'; the younger is more trusting of the system and susceptible to media influence."
+    },
+    {
+      "id": 3,
+      "text": "The younger brother is a good entry point — show them stability and order to shift them toward the regime."
+    }
+  ]
+}

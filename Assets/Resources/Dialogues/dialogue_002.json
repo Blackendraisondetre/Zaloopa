@@ -1,0 +1,17 @@
+{
+  "dialogueId": "dlg_002",
+  "lines": [
+    {
+      "id": 1,
+      "text": "55 years old, respected at the university, frequently cited, and writes articles. Formally a supporter of democratic values."
+    },
+    {
+      "id": 2,
+      "text": "In private conversations expresses “nostalgia for strong leadership.” Teaches a course on 20th-century regimes and highlights 'effective dictatorships'."
+    },
+    {
+      "id": 3,
+      "text": "Influential but cautious. Can be persuaded through ideological framing — he may become an ideologue if dictatorship is seen as rational."
+    }
+  ]
+}

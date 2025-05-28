@@ -1,0 +1,17 @@
+{
+  "dialogueId": "dlg_004",
+  "lines": [
+    {
+      "id": 1,
+      "text": "Middle class, have lived in the city for over 10 years. The father works at a factory, the mother is a homemaker."
+    },
+    {
+      "id": 2,
+      "text": "They hold moderate democratic views and raise their children with ideas of 'freedom' and 'choice'."
+    },
+    {
+      "id": 3,
+      "text": "Can be influenced through safety themes. They're concerned about street crime and might compromise if not pushed too hard."
+    }
+  ]
+}
