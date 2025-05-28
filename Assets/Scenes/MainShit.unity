@@ -1792,19 +1792,19 @@ MonoBehaviour:
   houseList:
   - idofhouse: 1
     go: {fileID: 1877774324}
-    percent: 60
+    percent: 50
   - idofhouse: 2
     go: {fileID: 253649155}
-    percent: 30
+    percent: 20
   - idofhouse: 3
     go: {fileID: 1851139172}
-    percent: 70
+    percent: 60
   - idofhouse: 4
     go: {fileID: 1171343724}
-    percent: 40
+    percent: 30
   - idofhouse: 5
     go: {fileID: 1276461746}
-    percent: 50
+    percent: 40
   killButton: {fileID: 1668145136}
   dayCounter: 0
   counterkill: 0
