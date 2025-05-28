@@ -1,16 +1,13 @@
 {
   "dialogueId": "dlg_003",
-  "npcName": "Guard",
   "lines": [
     {
       "id": 1,
-      "text": "Halt! What's your business in the city?",
-      "emotion": "suspicious"
+      "text": "Live together and work at the local power station. Recently lost their mother, and have become more withdrawn since. They don’t openly discuss politics, but the older brother is suspicious and distrusts “official news.” The younger brother, on the other hand, is more trusting of the system and susceptible to media influence. "
     },
     {
       "id": 2,
-      "text": "Alright, you may pass. But stay out of trouble.",
-      "emotion": "neutral"
+      "text": "The younger brother is a good point of entry — through him, both can be influenced. A demonstration of order and stability might sway them toward the regime, especially if the weakness of democracy in the face of chaos is emphasized."
     }
   ]
 }
