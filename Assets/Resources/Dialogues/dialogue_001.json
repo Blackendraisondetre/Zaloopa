@@ -1,16 +1,18 @@
 {
   "dialogueId": "dlg_001",
-  "npcName": "Old Man",
   "lines": [
     {
       "id": 1,
-      "text": "Ah, traveler. Haven't seen one of your kind in ages.",
-      "emotion": "curious"
+      "text": "Recently moved to the city from a northern province. Young, idealistic, they believe in the power of democracy and “civic engagement.”"
     },
     {
       "id": 2,
-      "text": "The woods are dangerous past sundown. Be careful.",
-      "emotion": "serious"
+      "text": "Frequently attend local council meetings and keep up with the news. The wife has an art education and teaches a children's art class, while the husband works as a math teacher. They expect transparency and a “bright future” from the authorities. Vulnerable to influence through fear, especially if shown the instability of a world without a strong hand."
     }
   ]
 }
+
+
+
+
+ 
