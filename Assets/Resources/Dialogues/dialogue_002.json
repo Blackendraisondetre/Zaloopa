@@ -1,0 +1,16 @@
+{
+  "dialogueId": "dlg_002",
+  "npcName": "Merchant",
+  "lines": [
+    {
+      "id": 1,
+      "text": "Looking for something rare? I've got just the thing.",
+      "emotion": "smug"
+    },
+    {
+      "id": 2,
+      "text": "No refunds though. Policy is policy!",
+      "emotion": "stern"
+    }
+  ]
+}

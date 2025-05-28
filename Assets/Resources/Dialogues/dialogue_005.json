@@ -1,0 +1,16 @@
+{
+  "dialogueId": "dlg_005",
+  "npcName": "Innkeeper",
+  "lines": [
+    {
+      "id": 1,
+      "text": "Welcome! A room for the night?",
+      "emotion": "cheerful"
+    },
+    {
+      "id": 2,
+      "text": "Breakfast is served at dawn.",
+      "emotion": "friendly"
+    }
+  ]
+}

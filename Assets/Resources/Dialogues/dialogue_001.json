@@ -1,0 +1,16 @@
+{
+  "dialogueId": "dlg_001",
+  "npcName": "Old Man",
+  "lines": [
+    {
+      "id": 1,
+      "text": "Ah, traveler. Haven't seen one of your kind in ages.",
+      "emotion": "curious"
+    },
+    {
+      "id": 2,
+      "text": "The woods are dangerous past sundown. Be careful.",
+      "emotion": "serious"
+    }
+  ]
+}

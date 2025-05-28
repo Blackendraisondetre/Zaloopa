@@ -1,0 +1,16 @@
+{
+  "dialogueId": "dlg_003",
+  "npcName": "Guard",
+  "lines": [
+    {
+      "id": 1,
+      "text": "Halt! What's your business in the city?",
+      "emotion": "suspicious"
+    },
+    {
+      "id": 2,
+      "text": "Alright, you may pass. But stay out of trouble.",
+      "emotion": "neutral"
+    }
+  ]
+}

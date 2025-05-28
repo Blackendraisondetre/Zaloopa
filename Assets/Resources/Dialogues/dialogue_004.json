@@ -1,0 +1,16 @@
+{
+  "dialogueId": "dlg_004",
+  "npcName": "Mysterious Stranger",
+  "lines": [
+    {
+      "id": 1,
+      "text": "Shhh... they might be listening.",
+      "emotion": "anxious"
+    },
+    {
+      "id": 2,
+      "text": "Meet me at the old windmill at midnight.",
+      "emotion": "whisper"
+    }
+  ]
+}

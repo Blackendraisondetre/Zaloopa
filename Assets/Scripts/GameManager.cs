@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 
     [Header("References")]
     public HouseUI selectedHouse;
-
     // Enums
     public enum GameState
     {
@@ -57,7 +56,7 @@ public class GameManager : MonoBehaviour
         selectedHouse = house;
         currentState = GameState.Dialog;
 
-        DialogueManager.Instance.StartDialogueForHouse(house);
+        // DialogueManager.Instance.StartDialogueForHouse(house);
     }
 
     // Called when an action card is used
@@ -77,20 +76,20 @@ public class GameManager : MonoBehaviour
             selectedHouse.SetState(HouseState.Dead);
             killsUsed++;
         }
-        else if (actionType == ActionType.Brainwash)
-        {
-            float chance = selectedHouse.brainwashChance;
-            bool success = Random.value < chance;
+        // else if (actionType == ActionType.Brainwash)
+        // {
+        //   //  float chance = selectedHouse.brainwashChance;
+        //    // bool success = Random.value < chance;
 
-            if (success)
-            {
-                selectedHouse.SetState(HouseState.Brainwashed);
-            }
-            else
-            {
-                Debug.Log("Brainwash failed");
-            }
-        }
+        //     if (success)
+        //     {
+        //         selectedHouse.SetState(HouseState.Brainwashed);
+        //     }
+        //     else
+        //     {
+        //         Debug.Log("Brainwash failed");
+        //     }
+        // }
 
         actionsLeft--;
         selectedHouse = null;
@@ -98,7 +97,7 @@ public class GameManager : MonoBehaviour
 
         EndAction();
     }
-
+        
     // Called after action is resolved
     public void EndAction()
     {
