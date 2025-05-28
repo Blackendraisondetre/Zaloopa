@@ -3,11 +3,15 @@
   "lines": [
     {
       "id": 1,
-      "text": "Moved to the city 8 years ago, integrated but still somewhat isolated. The father works in a workshop, the mother is a cook in a school cafeteria. Loyal to the authorities, but only as long as stability is maintained. Fear a return to the disorder they associate with their parents’ home country."
+      "text": "Moved to the city 8 years ago. Integrated but still feel isolated. The father works in a workshop, the mother is a school cook."
     },
     {
       "id": 2,
-      "text": "Not politically active, but teach their children respect for structure and rules. A good candidate for gradual influence — presenting dictatorship as a guarantee of order and identity. Loyalty is possible if their contributions are officially acknowledged and encouraged."
+      "text": "They're loyal to the authorities but only while stability holds. Fear disorder they remember from their parents' home country."
+    },
+    {
+      "id": 3,
+      "text": "Not politically active but teach respect for rules. Loyalty can be earned by highlighting order and rewarding contributions."
     }
   ]
 }

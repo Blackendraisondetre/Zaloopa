@@ -3,11 +3,15 @@
   "lines": [
     {
       "id": 1,
-      "text": "Middle class, have lived in the city for over 10 years. The father works at a factory, the mother is a homemaker. They hold moderate democratic views and try not to stand out. They raise their children with values of “choice” and “freedom,” but are increasingly concerned about rising street crime."
+      "text": "Middle class, have lived in the city for over 10 years. The father works at a factory, the mother is a homemaker."
     },
     {
       "id": 2,
-      "text": "Can be influenced through themes of safety and concern for their children’s future. A representative family that could be swayed toward dictatorship through fear and the promise of control. Prone to compromise, but should not be frightened too directly."
+      "text": "They hold moderate democratic views and raise their children with ideas of 'freedom' and 'choice'."
+    },
+    {
+      "id": 3,
+      "text": "Can be influenced through safety themes. They're concerned about street crime and might compromise if not pushed too hard."
     }
   ]
 }

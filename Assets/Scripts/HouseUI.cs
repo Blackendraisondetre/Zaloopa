@@ -8,9 +8,17 @@ public class HouseUI : MonoBehaviour
     public HouseState state = HouseState.Neutral;
     public Image houseImage;
 
-    public Color neutralColor = Color.blue;
-    public Color brainwashedColor = Color.red;
-    public Color deadColor = Color.black;
+    public Color neutralColor;
+    public Color brainwashedColor;
+    public Color deadColor;
+
+  
+    void Awake()
+    {
+        ColorUtility.TryParseHtmlString("#7FFFD4", out neutralColor);       // Aquamarine
+        ColorUtility.TryParseHtmlString("#808080", out deadColor);          // Gray
+        ColorUtility.TryParseHtmlString("#B03060", out brainwashedColor);   // Maroon/Pinkish red
+    }
     
     void Start()
     {

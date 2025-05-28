@@ -3,16 +3,15 @@
   "lines": [
     {
       "id": 1,
-      "text": "Recently moved to the city from a northern province. Young, idealistic, they believe in the power of democracy and “civic engagement”. Frequently attend local council meetings and keep up with the news."
+      "text": "Recently moved to the city from a northern province. Young, idealistic, they believe in the power of democracy and “civic engagement”."
     },
     {
       "id": 2,
-      "text": "The wife has an art education and teaches a children's art class, while the husband works as a math teacher. They expect transparency and a “bright future” from the authorities. Vulnerable to influence through fear, especially if shown the instability of a world without a strong hand."
+      "text": "Frequently attend local council meetings and keep up with the news. The wife has an art education and teaches a children's art class."
+    },
+    {
+      "id": 3,
+      "text": "The husband works as a math teacher. Vulnerable to fear-based influence, especially if shown the instability of a world without a strong hand."
     }
   ]
 }
-
-
-
-
- 
