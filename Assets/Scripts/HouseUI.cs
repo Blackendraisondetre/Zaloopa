@@ -40,7 +40,7 @@ public class HouseUI : MonoBehaviour
                 break;
             case HouseState.Dead:
                 houseImage.color = deadColor;
-                                                Debug.Log("dead");
+                                Debug.Log("dead");
 
                 break;
         }

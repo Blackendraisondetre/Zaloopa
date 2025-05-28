@@ -42,12 +42,19 @@ public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI dialogueText;
     public HouseUI houseui;
 
+    [Header("Day Transition UI")]
+    public GameObject dayPanel;
+    public TextMeshProUGUI dayText;
+    public float dayDisplayTime = 2f;
+
     [Header("House Data")]
     public List<HouseData> houseList = new List<HouseData>();
 
+    [Header("Action Buttons")]
+    public Button killButton;
+
     [Header("Game State")]
-    public int day = 0;
-    public int counterbrainwash = 0;
+    public int dayCounter = 0;
     public int counterkill = 0;
 
     private string[] lines;
@@ -129,13 +136,19 @@ public class DialogueManager : MonoBehaviour {
                     Debug.LogWarning("No HouseUI component found on: " + hd.go.name);
                 }
 
-                if (day == 2) {
-                    // Future: update day panel here
+                counterkill++;
+
+                 if (counterkill >= 2 && killButton != null)
+                {
+                killButton.interactable = false;
+                Debug.Log("Kill button disabled — kill limit reached.");
                 }
 
                 endActionCard();
                 DisableHouseButton();
                 ShowPopupMessage("House has been killed!");
+                dayCounter++;
+                CheckDayProgress();
                 return;
             }
         }
@@ -169,8 +182,6 @@ public class DialogueManager : MonoBehaviour {
                 {
                     Debug.LogWarning("No HouseUI component found on: " + hd.go.name);
                 }
-
-                counterbrainwash++;
                 DisableHouseButton();
                 ShowPopupMessage("House was brainwashed!");
             }
@@ -179,8 +190,9 @@ public class DialogueManager : MonoBehaviour {
                 Debug.Log("Brainwash failed. House remains unchanged.");
                 ShowPopupMessage("Brainwashing failed.");
             }
-
+            dayCounter++;
             endActionCard();
+            CheckDayProgress();
             return;
         }
     }
@@ -238,5 +250,85 @@ private IEnumerator ShowPopupRoutine(string message)
     actionPopupCanvasGroup.alpha = 0f;
     actionPopupText.gameObject.SetActive(false);
 }
+
+private void CheckDayProgress()
+{
+    // Check for day transitions
+    if (dayCounter == 2 || dayCounter == 4)
+    {
+        int currentDay = (dayCounter / 2) + 1;
+        StartCoroutine(ShowDayTransition(currentDay));
+    }
+
+    // End game after 6 actions or all houses are done
+    if (dayCounter >= 6 || AllHousesHandled())
+    {
+        EndGame();
+    }
+}
+
+private IEnumerator ShowDayTransition(int dayNumber)
+{
+    dayText.text = $"Day {dayNumber}";
+    dayPanel.SetActive(true);
+    blurOverlay?.SetActive(true);
+
+    yield return new WaitForSeconds(dayDisplayTime);
+
+    dayPanel.SetActive(false);
+    blurOverlay?.SetActive(false);
+}
+
+private bool AllHousesHandled()
+{
+    foreach (var hd in houseList)
+    {
+        HouseUI ui = hd.go.GetComponent<HouseUI>();
+        if (ui != null && ui.state == HouseState.Neutral)
+        {
+            return false; // At least one house still in play
+        }
+    }
+    return true;
+}
+
+private void EndGame()
+{
+    int totalAlive = 0;
+    int brainwashedCount = 0;
+
+    foreach (var hd in houseList)
+    {
+        HouseUI ui = hd.go.GetComponent<HouseUI>();
+        if (ui != null)
+        {
+            if (ui.state != HouseState.Dead)
+            {
+                totalAlive++;
+                if (ui.state == HouseState.Brainwashed)
+                {
+                    brainwashedCount++;
+                }
+            }
+        }
+    }
+
+    Debug.Log($"Remaining non-dead houses: {totalAlive}, Brainwashed: {brainwashedCount}");
+
+    if (brainwashedCount > totalAlive / 2f)
+    {
+        ShowPopupMessage("GOOD ENDING achieved!");
+        //LoadGoodEndingScene();
+    }
+    else
+    {
+        ShowPopupMessage("BAD ENDING reached.");
+        //LoadBadEndingScene();
+    }
+}
+
+
+
+
 
 }
