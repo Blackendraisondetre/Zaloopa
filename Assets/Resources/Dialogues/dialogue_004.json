@@ -1,16 +1,13 @@
 {
   "dialogueId": "dlg_004",
-  "npcName": "Mysterious Stranger",
   "lines": [
     {
       "id": 1,
-      "text": "Shhh... they might be listening.",
-      "emotion": "anxious"
+      "text": "Middle class, have lived in the city for over 10 years. The father works at a factory, the mother is a homemaker. They hold moderate democratic views and try not to stand out. They raise their children with values of “choice” and “freedom,” but are increasingly concerned about rising street crime."
     },
     {
       "id": 2,
-      "text": "Meet me at the old windmill at midnight.",
-      "emotion": "whisper"
+      "text": "Can be influenced through themes of safety and concern for their children’s future. A representative family that could be swayed toward dictatorship through fear and the promise of control. Prone to compromise, but should not be frightened too directly."
     }
   ]
 }

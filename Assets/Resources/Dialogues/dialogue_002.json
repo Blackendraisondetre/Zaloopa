@@ -1,16 +1,13 @@
 {
   "dialogueId": "dlg_002",
-  "npcName": "Merchant",
   "lines": [
     {
       "id": 1,
-      "text": "Looking for something rare? I've got just the thing.",
-      "emotion": "smug"
+      "text": "55 years old, respected at the university, frequently cited, and writes articles. Formally a supporter of democratic values, but in private conversations expresses “nostalgia for strong leadership.” Teaches a course on 20th-century regimes, where he pays considerable attention to “effective dictatorships.”"
     },
     {
       "id": 2,
-      "text": "No refunds though. Policy is policy!",
-      "emotion": "stern"
+      "text": "Has influence over students and colleagues, making him a valuable asset. However, he is extremely cautious and will not engage in direct cooperation. Influence is possible through ideological surroundings, by creating an intellectual environment where dictatorship is seen as a logical, rational choice. A potential ideologue, if persuaded."
     }
   ]
 }

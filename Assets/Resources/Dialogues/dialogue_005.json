@@ -1,16 +1,13 @@
 {
   "dialogueId": "dlg_005",
-  "npcName": "Innkeeper",
   "lines": [
     {
       "id": 1,
-      "text": "Welcome! A room for the night?",
-      "emotion": "cheerful"
+      "text": "Moved to the city 8 years ago, integrated but still somewhat isolated. The father works in a workshop, the mother is a cook in a school cafeteria. Loyal to the authorities, but only as long as stability is maintained. Fear a return to the disorder they associate with their parents’ home country."
     },
     {
       "id": 2,
-      "text": "Breakfast is served at dawn.",
-      "emotion": "friendly"
+      "text": "Not politically active, but teach their children respect for structure and rules. A good candidate for gradual influence — presenting dictatorship as a guarantee of order and identity. Loyalty is possible if their contributions are officially acknowledged and encouraged."
     }
   ]
 }
